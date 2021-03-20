@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/gbrdf/M1-programing-project/main/Unimportant%20folder/data-analytics-header-image.jpg)
 
-# A 3-layered Data Science Project : Web Scraping/Visualisation/Color Recognition
+# A 3-layered Data Science Project : Web Scraping/Visualization/Color Recognition
 
 ## Table of Content
   
