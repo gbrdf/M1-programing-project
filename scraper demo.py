@@ -1,5 +1,3 @@
-
-
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -7,10 +5,10 @@ import re
 
 import pandas as pd
 
-URL2 = "https://www.go2games.com/catalogsearch/result/index/?category_type=4507&p="+"2"+"&q=VIDEO+GAMES" # we scrap the second page
 
 
-def scraper(URL2) :
+
+def scraper() :
     genre = []
     game_names = []
     game_prices = []
@@ -18,7 +16,7 @@ def scraper(URL2) :
     buy_type = []
     game_url = []
    
-    page = requests.get(URL2)
+    page = requests.get("https://www.go2games.com/catalogsearch/result/index/?category_type=4507&p="+"2"+"&q=VIDEO+GAMES")
     soup = BeautifulSoup(page.content, "html.parser")
         
     for names in soup.find_all('a', alt=True):
@@ -43,7 +41,10 @@ def scraper(URL2) :
         urls = info.find('a', href=True)
         game_url.append(urls['href'])   
     
-    time.sleep(3)   
+    time.sleep(3)
+
+#     We will use the list game_url to scrap all the info that we need on the individual game pages. In other words : the game's 
+#   genre and console type.    
 
     l = len(game_url)
 
