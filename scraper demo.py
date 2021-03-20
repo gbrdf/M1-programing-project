@@ -4,36 +4,11 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import re
-import numpy as np
+
 import pandas as pd
-URL1 = "https://www.go2games.com/catalogsearch/result/index/?category_type=4507&q=VIDEO+GAMES"
-URL2 = "https://www.go2games.com/catalogsearch/result/index/?category_type=4507&p="+"2"+"&q=VIDEO+GAMES"
 
+URL2 = "https://www.go2games.com/catalogsearch/result/index/?category_type=4507&p="+"2"+"&q=VIDEO+GAMES" # we scrap the second page
 
-def page_number(URL1) :
-   
-#     Our first task is to scrap the main page with all games listed in it
-    main = requests.get("https://www.go2games.com/catalogsearch/result/index/?category_type=4507&q=VIDEO+GAMES")
-    soup = BeautifulSoup(main.content, 'html')
-
-    toolbar =soup.find_all('span', class_="toolbar-number" )
-
-#     We need to automise the code in order to find the exact number of pages to scrap
-
-    game_nb = re.findall('class="toolbar-number">(.*?)</span>,',str(toolbar))
-    game_pg = re.findall('class="toolbar-number toolbar-page">(.*?)</span>,',str(toolbar))
-
-    game_per_page = int(game_pg[1])
-    game_number = int(game_nb[0])
-
-
-    if game_number % game_per_page == 0 :
-        windows = game_number/game_per_page
-    else :
-        windows = (game_number//game_per_page) +1
-
-    number_of_windows = np.arange(1, windows+1, 1)
-    return number_of_windows
 
 def scraper(URL2) :
     genre = []
@@ -68,10 +43,7 @@ def scraper(URL2) :
         urls = info.find('a', href=True)
         game_url.append(urls['href'])   
     
-    time.sleep(3)
-
-#     We will use the list game_url to scrap all the info that we need on the individual game pages. In other words : the game's 
-#   genre and console type.    
+    time.sleep(3)   
 
     l = len(game_url)
 
@@ -104,12 +76,12 @@ def scraper(URL2) :
     return  game_names, genre, game_prices, console, buy_type
     time.sleep(3)
 
-page_number(URL1)
+
 df = pd.DataFrame(scraper(URL2))
 DF = pd.DataFrame(df.T)
 DF.columns = ["Game Names", "Genre", "Game Prices", "Console", "How to buy"]
 DF
-DF.to_csv("random folder")      
+DF.to_csv("random folder")         
 
       
 
