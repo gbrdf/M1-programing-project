@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Mar 20 19:46:33 2021
-
-@author: guillaume
-"""
 
 import cleaning as cl
 
