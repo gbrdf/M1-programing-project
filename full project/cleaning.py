@@ -8,7 +8,7 @@ import numpy as np
 def load_dt():
     global dt
 
-    dt = pd.read_csv("D:\PythonProject/backup_1.csv",index_col=(0))
+    dt = pd.read_csv("https://raw.githubusercontent.com/gbrdf/M1-programming-project/main/full%20project/raw_datas.csv",index_col=(0))
 
 load_dt()
 
