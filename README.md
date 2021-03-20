@@ -78,7 +78,7 @@ The whole project is built on a Windows OS.
 
 #### Understanding the scarper 
 
-The first function of our scraper will do this task : ` def page_number()` . We have already set two URLs (URL1 and URL2) in our code to make it easier when it comes to finding the appropriate webpage to scrap. We did this because of the HTML itself that is used. Its structure is a bit “janky” so we needed to find a different method in order to get the information needed. That being said, URL1 provides us with the info about the total page number we need to scrap and URL2 with location of those pages on the website.
+We have already set two URLs in our code to make it easier when it comes to finding the appropriate webpage to scrap. We did this because of the HTML itself that is used. Its structure is a bit “janky” so we needed to find a different method in order to get the information needed. That being said ` def page_number()` provides us with the info about the total page number we need to scrap, ` def scraper()` gets us all the data we want and `def data_frame()` compiles it all in a data frame for us to use in the 2nd section.
 
 If you see` time.sleep()` inside the code that means we want to take a small pause (in seconds) before going to the next page. This way we are not going to overwhelm the servers since we don’t know if they are built to withstand high traffic. 
 
