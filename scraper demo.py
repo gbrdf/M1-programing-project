@@ -77,11 +77,14 @@ def scraper(URL2) :
     time.sleep(3)
 
 
-df = pd.DataFrame(scraper(URL2))
-DF = pd.DataFrame(df.T)
-DF.columns = ["Game Names", "Genre", "Game Prices", "Console", "How to buy"]
-DF
-DF.to_csv("random folder")         
+def data_frame() : 
+    df = pd.DataFrame(scraper())
+    DF = pd.DataFrame(df.T)
+    DF.columns = ["Game Names", "Genre", "Game Prices", "Console", "How to buy"]
+    
+    return DF
+
+data_frame()          
 
       
 
