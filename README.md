@@ -20,10 +20,10 @@
 
 
 ## Overview
-This is a simple 3-layered code that scraps a video game shopping website, in our case [go2games](https://www.go2games.com), visualizes the data and downloads images of all games on their site in order to determine the Pegi rating.
+This is a simple 3-layered code that scraps a video game shopping website, in our case [go2games](https://www.go2games.com), visualizes the data and downloads images of all games on their site in order to determine the PEGI rating.
 
 ## Motivation
-There is nothing more fun than finding your own data to analyze… or at least that is how we think. To accomplish that goal we would need a web-scraping tool. In our case we chose Beautiful soup. Although we are still new when it comes to the subject of data visualization we wanted to push the boundaries even further and try to see if we can analyze specific pictures in order to group them following a certain criteria : in our case a Pegi rating. We tried our best to do the project as professionally as possible and to show our passion for the subject at hand. 
+There is nothing more fun than finding your own data to analyze… or at least that is how we think. To accomplish that goal we would need a web-scraping tool. In our case we chose Beautiful soup. Although we are still new when it comes to the subject of data visualization we wanted to push the boundaries even further and try to see if we can analyze specific pictures in order to group them following a certain criteria : in our case a PEGI rating. We tried our best to do the project as professionally as possible and to show our passion for the subject at hand. 
 
 ## Technical Aspect
 
@@ -44,7 +44,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 ```
-3. The last part revolves around downloading all the video game images from the site (also done with Beautiful Soup) and then analyzing said images for their Pegi rating using color detection : 
+3. The last part revolves around downloading all the video game images from the site (also done with Beautiful Soup) and then analyzing said images for their PEGI rating using color detection : 
 
 ```bash
 import PIL
@@ -91,9 +91,9 @@ An important thing to note here is that the visualization and cleaning section *
 > STEP 3 (incomplete)
 
 
-#### Getting the pegi information 
+#### Getting the PEGI information 
 
-Unfortunately, we were not able to fully finish this part of the project. We used Beautiful Soup to scrap the images, but we were unable to accurately measure the color in those images. The idea was to determine the color gradient in a certain area of the image and then conclude if the game is let’s say Pegi 3, Pegi 8 or Pegi 18. You can still find some chunks of our code [here](https://github.com/gbrdf/M1-programming-project/tree/main/pegi%20project%20(unfinished)). 
+Unfortunately, we were not able to fully finish this part of the project. We used Beautiful Soup to scrap the images, but we were unable to accurately measure the color in those images. The idea was to determine the color gradient in a certain area of the image and then conclude if the game is let’s say PEGI 3, PEGI 8 or PEGI 18. You can still find some chunks of our code [here](https://github.com/gbrdf/M1-programming-project/tree/main/pegi%20project%20(unfinished)). 
 
 
 > STEP 4 
