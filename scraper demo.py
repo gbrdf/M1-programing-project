@@ -1,12 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-import time
 import re
-
 import pandas as pd
-
-
-
 
 def scraper() :
     genre = []
@@ -41,7 +36,7 @@ def scraper() :
         urls = info.find('a', href=True)
         game_url.append(urls['href'])   
     
-    time.sleep(3)
+    
 
 #     We will use the list game_url to scrap all the info that we need on the individual game pages. In other words : the game's 
 #   genre and console type.    
@@ -74,18 +69,11 @@ def scraper() :
     genre = [re.sub('[ ]{2,}','',item) for item in genre]
     del game_names[::2]          
     
-    return  game_names, genre, game_prices, console, buy_type
-    time.sleep(3)
-
-
-def data_frame() : 
-    df = pd.DataFrame(scraper())
-    DF = pd.DataFrame(df.T)
-    DF.columns = ["Game Names", "Genre", "Game Prices", "Console", "How to buy"]
+    df = pd.DataFrame(list(zip(game_names, genre, game_prices, console, buy_type)), 
+               columns =["Game Names", "Genre", "Game Prices", "Console", "How to buy"]) 
+    return  df
     
-    return DF
-
-data_frame()          
+scraper()    
 
       
 
