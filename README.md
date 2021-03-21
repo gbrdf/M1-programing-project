@@ -20,7 +20,7 @@
 
 
 ## Overview
-This is a simple 3-layered code that scraps a video game shopping website, in our case [go2games](https://www.go2games.com), visualizes the data and downloads images of all games on their site in order to determine the PEGI rating.
+This is a simple 3-layered code that scraps a video game shopping website, in our case [go2games](https://www.go2games.com), visualizes the data and downloads images of all games on their site in order to determine the PEGI (Pan European Game Information) rating.
 
 ## Motivation
 There is nothing more fun than finding your own data to analyze… or at least that is how we think. To accomplish that goal we would need a web-scraping tool. In our case we chose Beautiful soup. Although we are still new when it comes to the subject of data visualization we wanted to push the boundaries even further and try to see if we can analyze specific pictures in order to group them following a certain criteria : in our case a PEGI rating. We tried our best to do the project as professionally as possible and to show our passion for the subject at hand. 
