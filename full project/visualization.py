@@ -1,3 +1,4 @@
+
 import pandas as pd
 import re
 import numpy as np
@@ -5,12 +6,43 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def load_dt():
+from cleaning import dt 
+
+# =============================================================================
+# 
+# =============================================================================
+
+
+def price_range():
     global dt
 
-    dt = pd.read_csv("https://raw.githubusercontent.com/gbrdf/M1-programming-project/main/full%20project/raw_datas.csv",index_col=(0))
+    dt['price'] = pd.to_numeric(dt['price'])
 
-load_dt()
+    conditions = [
+        (dt['price'] >= 0) & (dt['price'] <= 9.99),
+        (dt['price'] >= 9.99) & (dt['price'] <= 19.99),
+        (dt['price'] >= 19.99) & (dt['price'] <= 29.99),
+        (dt['price'] >= 29.99) & (dt['price'] <= 39.99),
+        (dt['price'] >= 39.99) & (dt['price'] <= 49.99),
+        (dt['price'] >= 49.99) & (dt['price'] <= 59.99),
+        (dt['price'] >= 59.99) & (dt['price'] <= 69.99),
+        (dt['price'] >= 69.99) & (dt['price'] <= 79.99),
+        (dt['price'] >= 79.99) & (dt['price'] <= 89.99), 
+        (dt['price'] >= 89.99) & (dt['price'] <= 99.99), 
+        (dt['price'] >= 99.99)
+        ]
+
+    val = ['0 - 9.99', '10 - 19.99','20 - 29.99','30 - 39.99',
+           '40 - 49.99','50 - 59.99','60 - 69.99','70 - 79.99',
+           '80 - 89.99','90 - 99.99','>=100'
+           ]
+
+    dt['price_range'] = np.select(conditions, val)
+
+    dt.head(5)
+
+price_range()
+
 
 
 # =============================================================================
@@ -46,7 +78,7 @@ def plot_price():
 
 plot_price()
 
-# plt.savefig('games_prices.png',bbox_inches="tight",dpi=450)
+# plt.savefig('name',bbox_inches="tight",dpi=450)
 
 
 # =============================================================================
@@ -72,7 +104,7 @@ def plot_plat():
     
 plot_plat()
 
-# plt.savefig('game_platgforms.png',bbox_inches="tight",dpi=450)
+# plt.savefig('name',bbox_inches="tight",dpi=450)
 
 # =============================================================================
 # # bar plot of the 10 most present game genres in datas 
@@ -91,7 +123,7 @@ def plot_10most():
 
 plot_10most()
 
-# plt.savefig('10_most_present_genres.png',bbox_inches="tight",dpi=450)
+# plt.savefig('name',bbox_inches="tight",dpi=450)
 
 # =============================================================================
 # plot of prices statistics per platform
@@ -137,7 +169,7 @@ def plot_stats():
     
 plot_stats()
 
-#plt.savefig('desc_stats_price',bbox_inches="tight",dpi=450)
+#plt.savefig('name',bbox_inches="tight",dpi=450)
 
 
 # =============================================================================
@@ -174,4 +206,4 @@ def plot_disp():
     
 plot_disp()
 
-#plt.savefig('proportion of game disponibility',bbox_inches="tight",dpi=450)
+#plt.savefig('name',bbox_inches="tight",dpi=450)
