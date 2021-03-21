@@ -93,7 +93,7 @@ An important thing to note here is that the visualization and cleaning section *
 
 #### Getting the PEGI information 
 
-Unfortunately, we were not able to fully finish this part of the project. We used Beautiful Soup to scrap the images, but we were unable to accurately measure the color in those images. The idea was to determine the color gradient in a certain area of the image and then conclude if the game is let’s say PEGI 3, PEGI 8 or PEGI 18. You can still find some chunks of our code [here](https://github.com/gbrdf/M1-programming-project/tree/main/pegi%20project%20(unfinished)). 
+Unfortunately, we were not able to fully finish this part of the project. We used Beautiful Soup to scrap the images, but we were unable to accurately measure the color in those images. The idea was to determine the color gradient in a certain area of the image and then conclude if the game is let’s say PEGI 3, PEGI 7 or PEGI 18. You can still find some chunks of our code [here](https://github.com/gbrdf/M1-programming-project/tree/main/pegi%20project%20(unfinished)). 
 
 
 > STEP 4 
