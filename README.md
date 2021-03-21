@@ -29,7 +29,7 @@ There is nothing more fun than finding your own data to analyze… or at least t
 
 This project is divided into 3 parts:
 
-1. Web scraping video game details on the site in order to find as mac information as possible (name, price, genre, buy status, supported console) and then grouping it all in a single data frame. We will be using the following modules : 
+1. Web scraping video game details on the site in order to find as many information as possible (name, price, genre, buy status, supported console) and then grouping it all in a single data frame. We will be using the following modules : 
 
 ```bash
 import requests
@@ -47,8 +47,9 @@ import matplotlib.pyplot as plt
 3. The last part revolves around downloading all the video game images from the site (also done with Beautiful Soup) and then analyzing said images for their pegi rating using color detection : 
 
 ```bash
-from PIL import Image
+import PIL
 from colorthief import ColorThief
+import io
 ```
 ## Installation
 
@@ -98,6 +99,32 @@ Unfortunately, we were not able to fully finish this part of the project. We use
 > STEP 4 
 
 #### Using the main script 
+
+The `main_script.py` defines modules from all 3 different scripts and calls all the functions present in said scripts:
+```bash
+import scraper as sc
+
+sc.scraper()
+
+
+import cleaning as cl
+
+cl.clean_cat()
+cl.remove_dup()
+cl.clean_plat()
+cl.price_range()
+cl.fix_video_games()
+
+
+import visualization as vs
+
+vs.plot_price()
+vs.plot_plat()
+vs.plot_10most()
+vs.plot_stats()
+vs.plot_disp()
+```
+It’s important to stock all files present in the full project in one folder on your PC and then defining that folder as your directory before running the code. Python won’t be able to find those modules otherwise. This allows you to run all the scripts with one click without needing to run them individually one by one.
 
 
 ## Demo
