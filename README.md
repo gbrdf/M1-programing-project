@@ -85,7 +85,7 @@ If you see` time.sleep()` inside the code that means we want to take a small pau
 
 #### Analyzing the data  
 
-An important thing to note here is that the visualization and cleaning section **works only with the specific pre-built data frame** that you can find in the main project section. We were unable to standardize the process do to a lack of time but we will try to do finish it nonetheless. 
+An important thing to note here is that the visualization and cleaning section **works only with the specific pre-built data frame** that you can find in the full project section. We were unable to standardize the process do to a lack of time but we will try to do finish it nonetheless. 
 
 
 > STEP 3 (incomplete)
