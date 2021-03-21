@@ -1,3 +1,6 @@
+import scraper as sc
+
+sc.scraper()
 
 import cleaning as cl
 
