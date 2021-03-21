@@ -108,3 +108,5 @@ def scraper() :
     return  df
     
 scraper()
+
+# If you want to save the data just add 'scraper().to_csv ("PATH")'
