@@ -29,7 +29,7 @@ def page_number() :
     else :
         windows = (game_number//game_per_page) +1
 
-    number_of_windows =range(1, windows, 1)
+    number_of_windows =range(1, windows+1, 1)
     return number_of_windows
 
 page_number()
@@ -69,7 +69,7 @@ def scraper() :
             urls = info.find('a', href=True)
             game_url.append(urls['href'])   
     
-        #time.sleep(3)
+        
 
 #     We will use the list game_url to scrap all the info that we need on the individual game pages. In other words : the game's 
 #   genre and console type.    
@@ -95,7 +95,7 @@ def scraper() :
                 console_clean_1 = re.findall('(.*?)</td>',str(console_info))
                 console_clean_2 = (', '.join(console_clean_1))
                 console.append(console_clean_2)
-            #time.sleep(3)
+            #time.sleep(2)
     
     console[:]=['NA' if y=='' else y for y in console]
     console = [re.sub('[ ]{2,}','',itemc) for itemc in console]
@@ -109,4 +109,5 @@ def scraper() :
     
 scraper()
 
-# If you want to save the data just add 'scraper().to_csv ("PATH")'
+
+#scraper().to_csv ("PATH") if you want to save the data
