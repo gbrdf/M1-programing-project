@@ -1,21 +1,24 @@
 
 import pandas as pd
-
 import re
-
 import numpy as np
 
 def load_dt():
     global dt
 
     dt = pd.read_csv("https://raw.githubusercontent.com/gbrdf/M1-programming-project/main/full%20project/raw_datas.csv",index_col=(0))
-
+    print(dt.columns)
+    print(dt.head(10))
+    
 load_dt()
 
 ## cleaning category
 
 def clean_cat():
     global dt
+    
+    print(dt['category'])
+    
     dt["category"] = dt["category"].str.replace("Kids &amp;","Kids,")
     dt["category"] = dt["category"].str.replace("Platfor","Platform")
     dt["category"] = dt["category"].str.replace("Platformm","Platform")
@@ -25,6 +28,7 @@ def clean_cat():
     dt["category"] = dt["category"].str.replace("rcade","Arcade")
     dt["category"] = dt["category"].str.replace("baseball","Sports")
     dt = dt.dropna()
+    print(dt.groupby('category').count())
 
 clean_cat()
 
@@ -70,7 +74,8 @@ def clean_plat():
     dt["platform"] = dt["platform"].str.replace("Xbox One, Xbox Series X","Xbox Series X")
     dt["platform"] = dt["platform"].str.replace("Nintendo Wii","Wii")
     dt["platform"] = dt["platform"].str.replace("Nintendo Wii U","Wii U")
-    dt.groupby('platform').count()
+    print(dt.groupby('platform').count())
+    
 
 clean_plat()
 
@@ -105,7 +110,7 @@ def price_range():
 
     dt['price_range'] = np.select(conditions, val)
 
-    dt.head(5)
+    print(dt.price_range.head(5))
 
 price_range()
 
@@ -113,19 +118,29 @@ price_range()
 # fix platform == "Video Game"
 # =============================================================================
 
+def fix_video_games():
+
 ## Setting With Copy Warning to False
 
-pd.options.mode.chained_assignment = None
+    pd.options.mode.chained_assignment = None
 
 ## get the index of  rows with 'platform' == 'Video Game
 
-platform_video_game = dt.loc[dt["platform"]=='Video Game']      
-
-platform_video_game["name"]      
-
+    platform_video_game = dt.loc[dt["platform"]=='Video Game']      
+    platform_video_game["name"]
+    print(dt.loc[dt['name'] == 'NBA 2K21 (Xbox Series X)', 'platform'])
+    
 ## manual fix for each 
                              
-dt.loc[dt['name'] == 'NBA 2K21 (Xbox Series X)', 'platform'] = 'Xbox Series X'
-dt.loc[dt['name'] == "Assassin's Creed Valhalla (PS4)", 'platform'] = 'PS4'         
-dt.loc[dt['name'] == "Oddworld: Abes Oddysee - New n Tasty (Nintendo Switch)", 'platform'] = 'Nintendo Switch'
-dt['platform'].groupby(dt["platform"]).count()
+    dt.loc[dt['name'] == 'NBA 2K21 (Xbox Series X)', 'platform'] = 'Xbox Series X'
+    print(dt.loc[dt['name'] == 'NBA 2K21 (Xbox Series X)', 'platform'])
+    dt.loc[dt['name'] == "Assassin's Creed Valhalla (PS4)", 'platform'] = 'PS4'         
+    dt.loc[dt['name'] == "Oddworld: Abes Oddysee - New n Tasty (Nintendo Switch)", 'platform'] = 'Nintendo Switch'
+    dt['platform'].groupby(dt["platform"]).count()
+    
+fix_video_games()
+
+
+
+
+
