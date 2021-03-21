@@ -34,9 +34,8 @@ This project is divided into 3 parts:
 ```bash
 import requests
 from bs4 import BeautifulSoup
-import time
+import time  
 import re
-import numpy as np
 import pandas as pd
 ```
 2. Data analysis and visualization of said data frame with these additional modules :
